@@ -81,8 +81,10 @@ module.exports = async (msg) => {
     };
 
     await request(options1, function (error, response) {
+      console.log("res", response);
       if (error) {
-        content = `请输入合法问题进行提问`;
+        content = `请就苹果的种植，销售等相关问题进行提问，谢谢。`;
+        service(msg, content);
       } else {
         try {
           const requestOenAi = async () => {

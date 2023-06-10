@@ -1,14 +1,14 @@
 const express = require("express");
 const auth = require("./auth.js");
 const app = express();
-const config = require("./config.js");
+// const config = require("./config.js");
 app.use(auth());
 
 const rp = require("request-promise-native");
 const { writeFile, readFile } = require("fs");
-const { appID, appsecret } = config;
-// const appID = 'wx04baed3096e7206f'
-// const appsecret = 'eb47fb717c8c1b708b603cc070256b6f'
+// const { appID, appsecret } = config;
+const appID = "wxefc44df73a03586a";
+const appsecret = "2307d1840a179369ddf9367c4127158a";
 
 class Wechat {
   constructor() {}
@@ -53,7 +53,7 @@ class Wechat {
 
   isVaildAccessToken(data) {
     if (!data && !data.access_token && !data.expires_in) {
-      returnfalse;
+      return false;
     }
     return data.expires_in > Date.now();
   }
